@@ -6,3 +6,5 @@
 
 LocalPreferences.toml
 .CondaPkg/
+
+/test/data/
