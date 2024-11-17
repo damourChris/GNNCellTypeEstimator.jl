@@ -17,11 +17,11 @@ include("utils.jl")
 include("model.jl")
 export GNNCellTypeEstimatorModel
 
-include("train.jl")
-export TrainingStrategy, gnn_loss_function, eval_loss, train!, train_model
-
 include("prepare_data.jl")
 using .DataPreparation
 export prepare_data, DataPreparationStrategy
+
+include("train.jl")
+export TrainingStrategy, gnn_loss_function, eval_loss, train!, train_model
 
 end
