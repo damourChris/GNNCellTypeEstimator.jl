@@ -19,9 +19,13 @@ function GNNCellTypeEstimatorModel(hidden_channels)
     conv_layer2 = GINConv(nn2, 0.001f0)
     hidden2 = HeteroGraphConv((:term, :to, :term) => conv_layer2)
 
+    conv_layer3 = GATv2Conv(1 => 1, relu)
+    hidden3 = HeteroGraphConv((:term, :to, :term) => conv_layer3)
+
     chain = Chain(;
                   hidden1=hidden1,
-                  hidden2=hidden2)
+                  hidden2=hidden2,
+                  hidden3=hidden3)
     return GNNCellTypeEstimatorModel(chain)
 end
 
@@ -32,6 +36,7 @@ function (model::GNNCellTypeEstimatorModel)(g::GNNHeteroGraph)
 
     x = l.hidden1(g, x)
     x = l.hidden2(g, x)
+    x = l.hidden3(g, x)
 
     return x.term'
 end
