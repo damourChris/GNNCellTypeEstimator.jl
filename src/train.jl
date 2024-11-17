@@ -16,6 +16,8 @@ using JLD2
 using RCall
 using Statistics
 
+import ..DataPreparation: prepare_data
+
 @option struct TrainingStrategy
     epochs::Int = 200
     η::Float64 = 1e-5
