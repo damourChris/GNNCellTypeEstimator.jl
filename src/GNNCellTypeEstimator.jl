@@ -15,6 +15,7 @@ using JLD2
 include("utils.jl")
 
 include("model.jl")
+using .Model
 export GNNCellTypeEstimatorModel
 
 include("prepare_data.jl")

@@ -1,3 +1,5 @@
+module Model
+
 struct GNNCellTypeEstimatorModel
     chain::Chain
 end
@@ -32,3 +34,5 @@ function (model::GNNCellTypeEstimatorModel)(g::GNNHeteroGraph)
 
     return x.term'
 end
+
+end # module
