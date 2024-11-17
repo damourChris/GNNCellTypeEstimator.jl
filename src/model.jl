@@ -1,6 +1,7 @@
 module Model
 
 using Flux
+using GraphNeuralNetworks
 
 struct GNNCellTypeEstimatorModel
     chain::Chain
@@ -8,6 +9,7 @@ end
 
 Flux.@layer :expand GNNCellTypeEstimatorModel
 
+__precompile__(false)
 function GNNCellTypeEstimatorModel(hidden_channels)
     nn1 = Dense(1 => hidden_channels, relu)
     conv_layer = GINConv(nn1, 0.001f0)
