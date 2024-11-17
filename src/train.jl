@@ -17,6 +17,7 @@ using RCall
 using Statistics
 
 import ..DataPreparation: prepare_data
+import ..Model: GNNCellTypeEstimatorModel
 
 @option struct TrainingStrategy
     epochs::Int = 200
