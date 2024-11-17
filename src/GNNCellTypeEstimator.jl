@@ -2,6 +2,7 @@ module GNNCellTypeEstimator
 
 using MetaGraphs
 using Graphs
+using Flux
 using ExpressionData
 using GraphNeuralNetworks
 using SyntheticExpressionMixtures
