@@ -22,6 +22,7 @@ using .DataPreparation
 export prepare_data, DataPreparationStrategy
 
 include("train.jl")
+using .Training
 export TrainingStrategy, gnn_loss_function, eval_loss, train!, train_model
 
 end
