@@ -1,5 +1,7 @@
 module Model
 
+using Flux
+
 struct GNNCellTypeEstimatorModel
     chain::Chain
 end
