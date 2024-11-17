@@ -44,6 +44,18 @@ function add_proportions!(g::MetaGraphs.MetaDiGraph, cell_type::String, proporti
     return g.vprops[cell_type_idx][:proportion] = proportion
 end
 
+function add_expression!(g::MetaGraphs.MetaDiGraph, gene::String, expression::Float64)
+    gene_idx = g[gene, :id]
+    return g.vprops[gene_idx][:expression] = Float32(expression)
+end
+
+function add_expression!(g::MetaGraphs.MetaDiGraph, gene::Vector{String},
+                         expression::Vector{Float64})
+    for (gene, expression) in zip(gene, expression)
+        add_expression!(g, gene, expression)
+    end
+end
+
 function propagate_cell_proportions!(graph::MetaGraphs.MetaDiGraph)
     proportions_to_propagate = [v_index
                                 for (v_index, v_props) in graph.vprops
